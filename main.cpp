@@ -30,6 +30,7 @@ int main(int argc, char *argv[])
       int value = (row+1) * (column+1);
       std::cout << "Setting (" << row << ", " << column << ") to " << value << std::endl;
       model.setData(index, QVariant(value));
+      //std::cout << index.row() << "," << index.column() << "," << value << std::endl;
       }
     }
 

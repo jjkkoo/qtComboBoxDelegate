@@ -30,6 +30,7 @@ QWidget *ComboBoxDelegate::createEditor(QWidget *parent, const QStyleOptionViewI
     {
     editor->addItem(Items[i].c_str());
     }
+    //std::cout << index.row() << "," << index.column() << "," << comboBox->currentIndex() << "," << value << std::endl;
   return editor;
 }
 
@@ -38,6 +39,7 @@ void ComboBoxDelegate::setEditorData(QWidget *editor, const QModelIndex &index) 
   QComboBox *comboBox = static_cast<QComboBox*>(editor);
   int value = index.model()->data(index, Qt::EditRole).toUInt();
   comboBox->setCurrentIndex(value);
+  //std::cout << index.row() << "," << index.column() << "," << comboBox->currentIndex() << "," << value << std::endl;
 }
 
 void ComboBoxDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
@@ -52,6 +54,7 @@ void ComboBoxDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionV
   editor->setGeometry(option.rect);
 }
 
+/*
 void ComboBoxDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
   QStyleOptionViewItemV4 myOption = option;
@@ -61,3 +64,4 @@ void ComboBoxDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
 
   QApplication::style()->drawControl(QStyle::CE_ItemViewItem, &myOption, painter);
 }
+*/
